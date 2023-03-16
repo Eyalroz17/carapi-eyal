@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My API Documentation</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- <link rel="stylesheet" href="bootstrap.min.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+  <header>
+    <h1 style="color: #f2c333; padding-left: 8px;">Eyal's API Documentation</h1>
+
+    <nav>
+      <a href="#overview">Overview</a>
+      <a href="#endpoints">Endpoints</a>
+      <a href="#authentication">Authentication</a>
+      <a href="#rate-limiting">Rate Limiting</a>
+      <a href="#error-handling">Error Handling</a>
+    </nav>
+    <div id="user-links">
+      <button></button>
+      <button></button>
+    </div>
+  </header>
+  <main>
+    <section style="padding-top:60px ;" id="overview">
+      <h2>Overview</h2>
+      <p>Welcome to a Car Dealer-ship , here you can find alot of kid of cars starts from family cars to super sport
+        cars all belong to the category you choose,<br />as you continue you will learn how to use the API at the right
+        way <br />recommendation using : Postman for response and requests or URL link's to see the JSON</p>
+      <h2 style="text-align: left;">Tutorial ,Requests</h2> <!--<h2>Tutorial ,Requests</h2>-->
+      <p style="text-align: left;width: 60%;">The Cars Web API is based on MongoDB,Postman and URL/Requests. Data
+        resources are accessed via standard HTTPS requests in UTF-8 format to an API endpoint. Where possible, Web API
+        uses appropriate HTTP verbs for each action:</p>
+      <table style="width: 60%;">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="get">
+            <td class="get-strong"><button>GET</button></td>
+            <td>Retrieves resources</td>
+          </tr>
+          <tr class="post">
+            <td class="post-strong"><button>POST</button></td>
+            <td>Creates resources</td>
+          </tr>
+          <tr class="put">
+            <td class="put-strong"><button>PUT</button></td>
+            <td>Changes and/or replaces resources or collections</td>
+          </tr>
+          <tr class="delete">
+            <td class="delete-strong"><button>DELETE</button></td>
+            <td>Deletes resources</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section id="users">
+      <h2>User's API</h2>
+      <p>Before you start to work with the API you have to use the User's API</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Endpoint</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="get">
+            <td class="get-strong"><button>GET</button></td>
+            <td>/users</td>
+            <td>User's Endpoint </td>
+          </tr>
+          <tr class="get">
+            <td class="get-strong"><button>GET</button></td>
+            <td>/users/usersinfo<br />
+              <h4 style="color:red;font-weight: bold;">Token required!</h4>
+            </td>
+            <td>returns information of the user belongs the Token that entered
+            </td>
+          </tr>
+          <tr class="post">
+            <td class="post-strong"><button>POST</button></td>
+            <td>/user</td>
+            <td>Creates a new user
+              <br />
+              { <br />"name": "string",<br /> "email": "string",<br /> "password": "string"<br /> }
+            </td>
+          </tr>
+          <tr class="post">
+            <td class="post-strong"><button>POST</button></td>
+            <td>/users/login</td>
+            <td>
+              Returns a unique token that expires in 60minutes<br/>
+            {  <br /> "email": "string",<br /> "password": "string"<br /> }
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section id="authentication">
+      <h2>Authentication</h2>
+      <p>To access the API, you'll need to authenticate using an API key. You can generate an API key by visiting
+        the "API Keys" section of your account settings.</p>
+    </section>
+    <section id="endpoints">
+      <h2>Cars API</h2>
+      <p>Here's a list of the routes available in the API:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Endpoint</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="get">
+            <td class="get-strong"><button>GET</button></td>
+            <td>/cars</td>
+            <td>Get a list of all the cars
+              <br />
+              <a style="text-decoration: underline;">Functions</a>
+              <br />
+              <strong>sort:</strong> allows you to view price from high to low
+              <br />
+              Example:
+              <a
+                href="https://carapi-eyal.cyclic.app//cars?sort=price">https://carapi-eyal.cyclic.app//cars?sort=price</a>
+              <hr>
+              <strong>reverse:</strong> allows you to see the oposite from the sort by adding =yes
+              <br />
+              Example:
+              <a
+                href="https://carapi-eyal.cyclic.app//cars?perPage=10&sort=price">https://carapi-eyal.cyclic.app//cars?sort=price&reverse=yes</a>
+              <hr>
+              <strong>page:</strong> choose wich page you want
+              <br />
+              Example:
+              <a href="https://carapi-eyal.cyclic.app//cars?page=3">https://carapi-eyal.cyclic.app//cars?page=3</a>
+              <hr>
+              <strong>Perpage:</strong> choose how many items will show
+              <br />
+              Example:
+              <a href="https://carapi-eyal.cyclic.app//cars?Perpage=6">https://carapi-eyal.cyclic.app//cars?Perpage=6</a>
+              <hr>
+            </td>
+          </tr>
+          <tr class="get">
+            <td class="get-strong"><button>GET</button></td>
+            <td>/cars/singlecar/:id</td>
+            <td>Get a single car by ID
+              <br />
+              Example:<a
+                href="https://carapi-eyal.cyclic.app//cars/singlecar/64122c12516db0f8285fc556">https://carapi-eyal.cyclic.app//cars/singlecar/64122c12516db0f8285fc556</a>
+            </td>
+          </tr>
+          <tr class="get">
+            <td class="get-strong"><button>GET</button></td>
+            <td>/cars/price</td>
+            <td style="text-align:center;width: 50%;">Min: Minimum price filter starts at 0, For Example:
+              <a href="https://carapi-eyal.cyclic.app//cars/price?min=0">https://carapi-eyal.cyclic.app//cars/price?min=0</a><br>
+              Max: Maximum price filter ,top price, For Example:
+              <a href="https://carapi-eyal.cyclic.app//cars/price?max=200">https://carapi-eyal.cyclic.app//price?max=200</a>
+            </td>
+          </tr>
+          <tr class="get">
+            <td class="get-strong"><button>GET</button></td>
+            <td>/cars/category/:category</td>
+            <td>Get a list of all the information belgond the the category you choose <br>Example:<a
+                href="https://carapi-eyal.cyclic.app//cars/category/Sports">https://carapi-eyal.cyclic.app//category/Sports</a>
+            </td>
+          </tr>
+          <tr class="get">
+            <td class="get-strong"><button>GET</button></td>
+            <td>/cars/search</td>
+            <td>Return match car name or information, For Example:
+              <a href="https://carapi-eyal.cyclic.app//cars/search?s=lambo">https://carapi-eyal.cyclic.app//cars/search?s=lambo</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Route</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="post">
+            <td class="post-strong"><button>POST</button></td>
+            <td>/cars<h4 style="color:red;font-weight: bold;">Token required!</h4>
+            </td>
+
+            <td style="width: 50%;">
+              Way to add a car collection by the Schema below
+              <br />
+              {
+              <br />
+              "company": "String",
+              <br />
+              "name": "String",
+              <br />
+              "price": 6,
+              <br />
+              "category": "String",
+              <br />
+              "img_url":"String" (not required)
+              <br />}
+              <code class=></code>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table>
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Route</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="put">
+            <td class="put-strong"><button>PUT</button></td>
+            <td>/cars/:id<h4 style="color:red;font-weight: bold;">Token required!</h4>
+            </td>
+
+            <td style="width: 50%;">
+              Way to edit an exist model
+              <br />
+              {
+              <br />
+              "company": "String",
+              <br />
+              "name": "String",
+              <br />
+              "price": 6,
+              <br />
+              "category": "String",
+              <br />
+              "img_url":"String"
+              <br />}
+              <br />
+              <p style="font-weight: bold;width: 100%;">id has to match to who created the element.<br> admin role able to edit</p>
+              <br />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table>
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Route</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="delete">
+            <td class="delete-strong"><button>DELETE</button></td>
+            <td>/cars/:id<h4 style="color:red;font-weight: bold;">Token required!</h4>
+            </td>
+
+            <td style="width: 50%;">
+              <p style="font-weight: bold;width: 100%;">id has to match to who created the element. <br> admin role able to delete</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+
+
+    <section id="rate-limiting">
+      <h2>Rate Limiting</h2>
+      <p>The API is rate-limited to 100 requests per hour per IP address. If you exceed this limit, you'll receive
+        a 429 "Too Many Requests" response.</p>
+    </section>
+
+    <section id="error-handling">
+      <h2>Error Handling</h2>
+      <p>The API uses standard HTTP status codes to indicate the success or failure of a request. Here are some of
+        the most common status codes:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Status Code</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>200</td>
+            <td>OK - The request has succeeded. The client can read the result of the request in the body and the
+              headers of the response.</td>
+          </tr>
+          <tr>
+            <td>201</td>
+            <td>Created - The request has been fulfilled and resulted in a new resource being created.</td>
+          </tr>
+          <tr>
+            <td>202</td>
+            <td>Accepted - The request has been accepted for processing, but the processing has not been completed.</td>
+          </tr>
+          <tr>
+            <td>204</td>
+            <td>No Content - The request has succeeded but returns no message body.</td>
+          </tr>
+          <tr>
+            <td>304</td>
+            <td>Not Modified.</td>
+          </tr>
+          <tr>
+            <td>400</td>
+            <td>Bad Request - The request could not be understood by the server due to malformed syntax. The message
+              body will contain more information.</td>
+          </tr>
+          <tr>
+            <td>401</td>
+            <td>Unauthorized - The request requires user authentication or, if the request included authorization
+              credentials, authorization has been refused for those credentials.</td>
+          </tr>
+          <tr>
+            <td>403</td>
+            <td>Forbidden - The server understood the request, but is refusing to fulfill it.</td>
+          </tr>
+          <tr>
+            <td>404</td>
+            <td>Not Found - The requested resource could not be found. This error can be due to a temporary or permanent
+              condition.</td>
+          </tr>
+          <tr>
+            <td>429</td>
+            <td>Too Many Requests has been applied.</td>
+          </tr>
+          <tr>
+            <td>500</td>
+            <td>Internal Server Error. You should never receive this error because our clever coders catch them all …
+              but if you are unlucky enough to get one, please report it to us through a comment at the bottom of this
+              page.</td>
+          </tr>
+          <tr>
+            <td>502</td>
+            <td>Bad Gateway - The server was acting as a gateway or proxy and received an invalid response from the
+              upstream server.</td>
+          </tr>
+          <tr>
+            <td>503</td>
+            <td>Service Unavailable - The server is currently unable to handle the request due to a temporary condition
+              which will be alleviated after some delay. You can choose to resend the request again.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <footer>
+    <div class="top-footer">
+      <h1 style="color: black; ">Media</h1>
+    </div>
+      <div class="logo-footer">
+        <a target="_blank" href="https://www.instagram.com/eyalrozen17/">
+          <i class="in fa fa-instagram" aria-hidden="true"></i>
+        </a>
+        <a target="_blank" href="https://github.com/Eyalroz17">
+          <i class="fa fa-github" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div style="text-align: center;">
+            כל הזכויות שמורות לאייל רוזן ©2023
+         
+      </div>
+    
+  </footer>
+
+</body>
+
+</html>

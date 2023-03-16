@@ -1,0 +1,225 @@
+/* Global Styles */
+
+body {
+  background-image:url(img/rest-apis.jpg);
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: black;
+  
+}
+* button{
+  /* width: 10px; */
+  border: none;
+  
+  padding: 10px 18px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor:unset;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+}
+/* Header Styles */
+/* Styling for the updated navigation bar */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #5b2736;
+  /* padding: 10px; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+
+}
+
+nav {
+  display: flex;
+
+  margin-right: 200px;
+  justify-content: center;
+  align-items: center;
+  /* margin: 0 20px; */
+}
+
+nav a {
+  color: #f2c333  ;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+nav a:hover {
+  color: #c7c7c7;
+}
+
+#user-links {
+  display: flex;
+  align-items: center;
+}
+
+#user-links button {
+  
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 34px;
+  text-transform: uppercase;
+}
+
+#user-links button:hover {
+  color: #c7c7c7;
+}
+
+
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main Styles */
+main {
+  /* text-align: center; */
+  background:rgb(238, 237, 237);
+  box-shadow: 1px 5px 15px 1px #000000;
+  max-width:55%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  /* text-align: center; */
+  font-size: 24px;
+  margin-top: 40px;
+}
+
+p {
+  
+  /* text-align: center; */
+  margin-bottom: 20px;
+  width: 60%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+table th{
+  color: white;
+}
+table th,
+table td {
+  border: 1px solid #DDD;
+  padding: 10px;
+  text-align: center;
+}
+
+table th {
+  background-color: rgba(0, 0, 0, 0.582);
+  
+}
+table tbody td.delete-strong button{
+  background-color: rgba(196, 1, 1, 0.35);
+}
+table tbody td.delete-strong {
+  background-color: rgba(196, 1, 1, 0.35);
+   width: 10%;
+}
+table tbody tr.delete{
+  background-color: rgba(196, 1, 1, 0.35);
+}
+table tbody td.put-strong button{
+  background-color: rgba(1, 102, 196, 0.35);
+}
+table tbody td.put-strong {
+  background-color: rgba(1, 102, 196, 0.35);
+   width: 10%;
+}
+table tbody tr.put{
+  background-color: rgba(1, 102, 196, 0.35);
+}
+table tbody td.post-strong button{
+  background-color: rgba(196, 128, 1, 0.500);
+}
+table tbody td.post-strong {
+  background-color: rgba(196, 128, 1, 0.300);
+   width: 10%;
+}
+table tbody tr.post{
+  background-color: rgba(196, 128, 1, 0.350);
+}
+table tbody td.get-strong button{
+  background-color: rgba(1, 196, 1, 0.300);
+}
+table tbody td.get-strong {
+  background-color: rgba(1, 196, 1, 0.200);
+  width: 10%;
+}
+table tbody tr.get{
+  background-color: rgba(1, 196, 1, 0.200);
+}
+/* ------------------------------ */
+footer{
+  margin-top: 40px;
+  min-height: 100px;
+  background: rgba(0, 0, 0, 0.342);
+  
+}
+footer .top-footer{
+  text-align: center;
+}
+footer .logo-footer {
+  text-align: center;
+  
+}
+footer .logo-footer i{
+  font-size: 50px;
+ 
+}
+footer .logo-footer a{
+  padding: 0 12px;
+  color: black;
+}
+@media only screen and (max-width: 600px) {
+  header {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  nav {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  nav a {
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  main {
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  table {
+    font-size: 14px;
+  }
+}
